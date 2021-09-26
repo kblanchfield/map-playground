@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Map playground
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a playground repo for displaying and interacting with maps in the browser.
 
-## Available Scripts
+So far it uses:
 
-In the project directory, you can run:
+- [leaflet](https://leafletjs.com/)
+- [react-leaflet](https://react-leaflet.js.org/)
+- [react-leaflet-markercluster](https://github.com/YUzhva/react-leaflet-markercluster)
+- [mapbox](https://www.mapbox.com/)
 
-### `yarn start`
+### Development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the project locally with
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+yarn install
+yarn start
+```
 
-### `yarn test`
+You'll need an `.env` file with the mapbox access token to see the custom map style.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Known issues
 
-### `yarn build`
+- react-leaflet-markercluster has a [known issue](https://github.com/yuzhva/react-leaflet-markercluster/issues/133) around incorrect typings so I've followed a [suggested workaround](https://github.com/yuzhva/react-leaflet-markercluster/issues/133#issuecomment-752617196) to declare the module in an `index.d.ts` file.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- create-react-app has a [known issue](https://github.com/facebook/create-react-app/issues/9468) where it fails to compile if any imported libraries use the `??` operator. I've followed a [suggeted workaround](https://github.com/facebook/create-react-app/issues/9468#issuecomment-843818739) by editing the brwoser targets.
